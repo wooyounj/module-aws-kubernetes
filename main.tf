@@ -79,7 +79,7 @@ resource "aws_iam_role" "ms-node" {
 }
 
 # 노드 정책
-resource "aws_iam_policy_attachment" "ms-node-AmazonEKSWorkerNodePolicy" {
+resource "aws_iam_role_policy_attachment" "ms-node-AmazonEKSWorkerNodePolicy" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
   role       = aws_iam_role.ms-node.name
 }
@@ -89,7 +89,7 @@ resource "aws_iam_role_policy_attachment" "ms-node-AmazonEKS_CNI_Policy" {
   role       = aws_iam_role.ms-node.name
 }
 
-resource "aws_iam_role_policy_attachment" "ms-node-ContainerRegistryReadOnly" {
+resource "aws_iam_role_policy_attachment" "ms-node-AmazonEC2ContainerRegistryReadOnly" {
   policy_arn = "arn:aws_iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
   role       = aws_iam_role.ms-node.name
 }
